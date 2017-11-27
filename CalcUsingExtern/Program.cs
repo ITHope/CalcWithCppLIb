@@ -9,12 +9,12 @@ namespace CalcUsingExtern
 {
     class Program
     {
-        [DllImport("CalcCppLib.dll")]
-        public static extern int CalcCppLib(int num1, int num2, char op);
+        [DllImport("CalcCppLib.dll", EntryPoint = "?Calc@CalcCppLib@1@SAHHHD@Z")]
+        public static extern int Calc(int num1, int num2, char op);
 
         static void Main(string[] args)
         {
-            Console.WriteLine(CalcCppLib(5, 7, '+'));
+            Console.WriteLine(Calc(5, 7, '+'));
         }
     }
 }

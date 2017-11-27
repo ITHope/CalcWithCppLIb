@@ -9,26 +9,28 @@ using namespace std;
 
 namespace CalcCppLib
 {
-	int Calc(int num1, int num2, char op)
-	{
-		int res;
+	extern "C" {
+		__declspec(dllexport) int CalcCppLib::Calc(int num1, int num2, char op)
+		{
+			int res;
 
-		if (op == '+')
-		{
-			res = num1 + num2;
+			if (op == '+')
+			{
+				res = num1 + num2;
+			}
+			else if (op == '-')
+			{
+				res = num1 - num2;
+			}
+			else if (op == '*')
+			{
+				res = num1 * num2;
+			}
+			else if (op == '/')
+			{
+				res = num1 / num2;
+			}
+			return res;
 		}
-		else if (op == '-')
-		{
-			res = num1 - num2;
-		}
-		else if (op == '*')
-		{
-			res = num1 * num2;
-		}
-		else if (op == '/')
-		{
-			res = num1 / num2;
-		}
-		return res;
 	}
 }
